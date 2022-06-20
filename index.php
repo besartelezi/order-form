@@ -23,7 +23,18 @@ function whatIsHappening() {
 
 // TODO: provide some products (you may overwrite the example)
 $products = [
-    ['name' => 'Your favourite drink', 'price' => 2.5],
+    ['name' => 'Krabby Patty', 'price' => 1.25],
+    ['name' => 'Double Krabby Patty', 'price' => 2],
+    ['name' => 'Triple Krabby Patty', 'price' => 3],
+    ['name' => 'Coral Bits', 'price' => 1.50],
+    ['name' => 'Kelp Rings', 'price' => 1.50],
+    ['name' => 'Krabby Meal', 'price' => 3.50],
+    ['name' => 'Double Krabby Meal', 'price' => 3.75],
+    ['name' => 'Triple Krabby Meal', 'price' => 4],
+    ['name' => 'Salty Sea Dog', 'price' => 1.25],
+    ['name' => 'Sailors Surprise', 'price' => 3],
+    ['name' => 'Footlong', 'price' => 2],
+    ['name' => 'Golden Loaf', 'price' => 2.50],
 ];
 
 $totalValue = 0;

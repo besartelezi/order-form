@@ -6,9 +6,9 @@ And the long version shall be written down below!
 ## 🌱 Must-have features
 
 ### Preparation
-- [ ] Have a look at the provided structure: you get both an index file and another file containing a form. How are these two working together? 
+- [x] Have a look at the provided structure: you get both an index file and another file containing a form. How are these two working together? 
 - [x] Think of a funny / surprising / original name for a store that should definitely exist. (fancy suits for cats? bongo for dates? you name it!)
-- [ ] Think of some products to sell (feel free to be creative) and update the products array with these.
+- [x] Think of some products to sell (feel free to be creative) and update the products array with these.
 - [ ] Check if all the products & prices are currently visible in the form.
 
 ### Step 1: accepting orders
@@ -57,5 +57,10 @@ And the long version shall be written down below!
 - [ ] Include the most popular product (by this user) and amount of products bought by this user.
 
 #### And that's that for all the details regarding this challenge. From here on out, you can read through my own ups and downs while working on this challenge, some tips that I might have discovered, or some dumb jokes I'll come up with!
+#### I also added checklists to all the featured that the website needs, so that I can keep up with everything and you, my dear reader, can understand which features are active and which aren't.
 
-## Unofficial Official Launch of the Krusty Krab - Online
+## Unofficial Official Launch of the Krusty Krab
+As a hardcore Spongebob enthusiast, BubbleBlower extraordinaire, and Jefflyfish catcher in training, I have chosen to use the Krusty Krab as the theme for this challenge.
+I'll be adding the menu from the Krusty Krab itself to the order list.
+
+
