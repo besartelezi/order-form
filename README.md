@@ -9,11 +9,11 @@ And the long version shall be written down below!
 - [x] Have a look at the provided structure: you get both an index file and another file containing a form. How are these two working together? 
 - [x] Think of a funny / surprising / original name for a store that should definitely exist. (fancy suits for cats? bongo for dates? you name it!)
 - [x] Think of some products to sell (feel free to be creative) and update the products array with these.
-- [ ] Check if all the products & prices are currently visible in the form.
+- [x] Check if all the products & prices are currently visible in the form.
 
 ### Step 1: accepting orders
-- [ ] Show an order confirmation when the user submits the form. This should contain the chosen products and delivery address.
-- [ ] We will learn how to save this information to a database later, so no need to do this now.
+- [x] Show an order confirmation when the user submits the form. This should contain the chosen products and delivery address.
+- [x] We will learn how to save this information to a database later, so no need to do this now.
 
 ### Step 2: validation
 - [ ] Use PHP to check the following:
@@ -63,4 +63,29 @@ And the long version shall be written down below!
 As a hardcore Spongebob enthusiast, BubbleBlower extraordinaire, and Jefflyfish catcher in training, I have chosen to use the Krusty Krab as the theme for this challenge.
 I'll be adding the menu from the Krusty Krab itself to the order list.
 
+## Having a Con'Firm' Grasp on PHP
+The confirmation order is something that I struggled a **LOT** with.
+But, now that I was able to finally able to figure it out *(with the help of the awesome coaches at BeCode)* I believe that I've started to understand PHP on a deeper level. <br>
 
+What troubled me was that I was unable to show the products that the user has selected.
+I was able to get the index numbers of the array of products that the user had chosen, but I was unable to mix that together with the array of products itself.
+One of the coaches told me that I should look into the array_keys() function.
+And just like that it felt as if I could see clearly again for the first time in 37 years, which is weird since I'm still 25 years old.
+
+The code I ended up writing ended up looking something like this:
+````
+function validate(array $originalProducts) {
+  $arrayKeysProducts = array_keys($_POST["products"]);
+  
+  for ($i = 0; $i < count($arrayKeysProducts); $i++){
+    echo $originalProducts[$arrayKeysProducts[$i]]["name"];
+    echo "<br>";
+    }
+  }
+````
+I'm glad I encountered such a difficult PHP challenge this early on.
+Because of it, I learned a lot about keys, the way global variables are structured in PHP, and *a lot about myself!*
+Like Patrick taught me when I was little, I need to firmly grasp stuff if I want to learn them.
+<br>
+
+![firmly-grasp-it](images/firmlygraspit.gif)

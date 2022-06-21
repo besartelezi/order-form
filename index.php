@@ -1,5 +1,4 @@
 <?php
-
 // This file is your starting point (= since it's the index)
 // It will contain most of the logic, to prevent making a messy mix in the html
 
@@ -21,7 +20,6 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
-// TODO: provide some products (you may overwrite the example)
 $products = [
     ['name' => 'Krabby Patty', 'price' => 1.25],
     ['name' => 'Double Krabby Patty', 'price' => 2],
@@ -38,12 +36,42 @@ $products = [
 ];
 
 $totalValue = 0;
+$productsLength = count($products);
 
-function validate()
+
+    function validate(array $originalProducts)
 {
+    echo $_POST["email"];
+    echo "<br>";
+    echo $_POST["street"];
+    echo "<br>";
+    echo $_POST["streetnumber"];
+    echo "<br>";
+    echo $_POST["city"];
+    echo "<br>";
+    echo $_POST["zipcode"];
+    echo "<br>";
+
+    $arrayKeysProducts = array_keys($_POST["products"]);
+
+    for ($i = 0; $i < count($arrayKeysProducts); $i++){
+        echo $originalProducts[$arrayKeysProducts[$i]]["name"];
+        echo "<br>";
+    }
+
+    //$_GET["products"] is an array with all the index numbers that the user has chosen.
+    // I need to get all these index numbers, and get the products with the corresponding index number from the $products array
+    //by using the array_keys() function, we get an array existing of only the necessary index numbers
+
     // TODO: This function will send a list of invalid fields back
     return [];
 }
+
+if (!empty($_POST)) {
+    validate($products);
+
+}
+
 
 function handleForm()
 {
@@ -63,5 +91,8 @@ $formSubmitted = false;
 if ($formSubmitted) {
     handleForm();
 }
+
+
+whatIsHappening();
 
 require 'form-view.php';
