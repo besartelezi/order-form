@@ -39,8 +39,19 @@ $totalValue = 0;
 $productsLength = count($products);
 
 
-    function validate(array $originalProducts)
+    function validate()
 {
+    // TODO: This function will send a list of invalid fields back
+    return [];
+}
+
+
+
+
+function handleForm(array $originalProducts)
+{
+
+    // TODO: form related tasks (step 1) --------------------------- DONE
     echo $_POST["email"];
     echo "<br>";
     echo $_POST["street"];
@@ -52,38 +63,25 @@ $productsLength = count($products);
     echo $_POST["zipcode"];
     echo "<br>";
 
-    $arrayKeysProducts = array_keys($_POST["products"]);
 
-    for ($i = 0; $i < count($arrayKeysProducts); $i++){
+    $arrayKeysProducts = array_keys($_POST["products"]);
+    for ($i = 0; $i < count($arrayKeysProducts); $i++) {
         echo $originalProducts[$arrayKeysProducts[$i]]["name"];
         echo "<br>";
     }
-
-    //$_GET["products"] is an array with all the index numbers that the user has chosen.
-    // I need to get all these index numbers, and get the products with the corresponding index number from the $products array
-    //by using the array_keys() function, we get an array existing of only the necessary index numbers
-
-    // TODO: This function will send a list of invalid fields back
-    return [];
-}
-
-if (!empty($_POST)) {
-    validate($products);
-
-}
-
-
-function handleForm()
-{
-    // TODO: form related tasks (step 1)
-
     // Validation (step 2)
     $invalidFields = validate();
     if (!empty($invalidFields)) {
         // TODO: handle errors
+        echo "This field be empty yo";
+        $_POST = [];
+        return [];
     } else {
         // TODO: handle successful submission
     }
+}
+if (!empty($_POST)) {
+    handleForm($products);
 }
 
 // TODO: replace this if by an actual check
@@ -92,7 +90,5 @@ if ($formSubmitted) {
     handleForm();
 }
 
-
-whatIsHappening();
 
 require 'form-view.php';

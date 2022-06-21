@@ -26,8 +26,8 @@ And the long version shall be written down below!
 > Usually, validation is a combination of server side checks (for security, these can't be bypassed) and checks in html / JS (can be bypassed but can give live user feedback).
 
 ### Step 3: improve UX by saving user data
-- Check out the possibilities of the PHP session and cookies.
-- We want to prefill the address (you can just use any previous user input, we don't need to get data from anywhere else), as long as the browser isn't closed. Which of these techniques is the better choice here?
+- [ ] Check out the possibilities of the PHP session and cookies.
+- [ ] We want to prefill the address (you can just use any previous user input, we don't need to get data from anywhere else), as long as the browser isn't closed. Which of these techniques is the better choice here?
 
 > When using cookies on a live site, check any legal requirements.
 
@@ -65,7 +65,7 @@ I'll be adding the menu from the Krusty Krab itself to the order list.
 
 ## Having a Con'Firm' Grasp on PHP
 The confirmation order is something that I struggled a **LOT** with.
-But, now that I was able to finally able to figure it out *(with the help of the awesome coaches at BeCode)* I believe that I've started to understand PHP on a deeper level. <br>
+But, now that I was able to finally able to figure it out *(with the help of the awesome coaches at BeCode)* I believe that I've started to understand PHP on a deeper level.
 
 What troubled me was that I was unable to show the products that the user has selected.
 I was able to get the index numbers of the array of products that the user had chosen, but I was unable to mix that together with the array of products itself.
@@ -86,6 +86,11 @@ function validate(array $originalProducts) {
 I'm glad I encountered such a difficult PHP challenge this early on.
 Because of it, I learned a lot about keys, the way global variables are structured in PHP, and *a lot about myself!*
 Like Patrick taught me when I was little, I need to firmly grasp stuff if I want to learn them.
-<br>
+
 
 ![firmly-grasp-it](images/firmlygraspit.gif)
+
+## Validation !== Vacation
+If there's one thing that's certain about learning PHP, it's that you'll get more often stuck than a snail in a glue factory.
+But, these are challenges worth overcoming, even though they can be infuriating at times.
+Currently 
