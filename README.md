@@ -18,7 +18,7 @@ And the long version shall be written down below!
 ### Step 2: validation
 - [ ] Use PHP to check the following:
     - [x] Required fields are not empty.
-    - [ ] Zip code are only numbers.
+    - [x] Zip code are only numbers.
     - [ ] Email address is valid.
 - [ ] Show any problems (empty or invalid data) with the fields at the top of the form. Tip: use the [bootstrap alerts](https://getbootstrap.com/docs/4.0/components/alerts/) for inspiration. If they are valid, the confirmation of step 1 is shown.
 - [ ] If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
@@ -93,4 +93,22 @@ Like Patrick taught me when I was little, I need to firmly grasp stuff if I want
 ## Validation !== Vacation
 If there's one thing that's certain about learning PHP, it's that you'll get more often stuck than a snail in a glue factory.
 But, these are challenges worth overcoming, even though they can be infuriating at times.
-Currently 
+
+I was finally able to fix a bug that stood in the way of me being able to work on the validation step of the challenge.
+I rewrote the earlier for loop into this:
+````
+if (isset($_POST["products"])) {
+  $arrayKeysProducts = array_keys($_POST["products"]);
+  for ($i = 0; $i < count($arrayKeysProducts); $i++) {
+    echo $originalProducts[$arrayKeysProducts[$i]]["name"];
+    echo "<br>";
+    }
+}
+````
+
+Checking if fields are empty or not is rather easy thanks to the empty() function.
+I did have to move some parts of the code however, just so that everything would work as intended.
+The e-mail has an automatic validator, since the e-mail fields from bootstrap automatically check if the user has input a valid e-mail.
+But since the challenge mentioned that we need to use PHP to validate it, I'll add an e-mail validator just to be sure.
+
+
