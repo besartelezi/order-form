@@ -38,8 +38,6 @@ $products = [
 $totalValue = 0;
 $productsLength = count($products);
 
-
-
 if (isset($_POST["products"])) {
     $arrayKeysProducts = array_keys($_POST["products"]);
     for ($i = 0; $i < count($arrayKeysProducts); $i++) {
@@ -55,7 +53,6 @@ function validate()
 
 function handleForm(array $originalProducts)
 {
-
     // Validation (step 2)
     if (empty($_POST["email"]) || empty($_POST["streetnumber"]) || empty($_POST["street"])
         || empty($_POST["city"])|| empty($_POST["zipcode"])|| empty($_POST["products"])){
@@ -73,29 +70,76 @@ function handleForm(array $originalProducts)
     Ye e-mail that ye 'ave given be invalid, please try again.
 </div>";
     }
-    else {
-        // TODO: handle successful submission
+    else{
+        echo '<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Arrgh, confirm ye order matey!</h4>';
+        //creates p tag with needed information in
+        echo "<p>Email: <b>";
         echo $_POST["email"];
-        echo "<br>";
+        echo "</b></p>";
+
+        echo "<p>Street: <b>";
         echo $_POST["street"];
-        echo "<br>";
+        echo "</b></p>";
+
+        echo "<p>Street Number: <b>";
         echo $_POST["streetnumber"];
-        echo "<br>";
+        echo "</b></p>";
+
+        echo "<p>City: <b>";
         echo $_POST["city"];
-        echo "<br>";
+        echo "</b></p>";
+
+        echo "<p>Zipcode: <b>";
         echo $_POST["zipcode"];
-        echo "<br>";
+        echo "</b></p>";
+
         if (isset($_POST["products"])) {
             $arrayKeysProducts = array_keys($_POST["products"]);
             for ($i = 0; $i < count($arrayKeysProducts); $i++) {
+                echo "<p>";
                 echo $originalProducts[$arrayKeysProducts[$i]]["name"];
-                echo ": ";
+                echo ": <b>";
                 echo $originalProducts[$arrayKeysProducts[$i]]["price"];
                 echo "€";
-                echo "<br>";
+                echo "</b></p>";
+                $totalValue += $originalProducts[$arrayKeysProducts[$i]]["price"];
             }
         }
+
+        echo "<p>For a total amount of: <b>";
+        echo $totalValue;
+        echo "€</b></p>";
+
+
+        echo '
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+';
+
+        echo "</div>";
     }
+    //adding information to the session, it first needs to go through a lot of different filters
+    //I don't want to add any information that may be wrong to the session.
+
+    if (isset($_POST["email"]) && isset($_POST["zipcode"]) && isset($_POST["city"])
+        && isset($_POST["street"]) && isset($_POST["streetnumber"]) && isset($_POST["products"])
+        && strpos($_POST["email"], "@") && is_numeric($_POST["zipcode"])) {
+        $_SESSION["email"] = [];
+        $_SESSION["city"] = [];
+        $_SESSION["street"] = [];
+        $_SESSION["streetnumber"] = [];
+        $_SESSION["zipcode"] = [];
+
+        array_push($_SESSION["email"], [$_POST["email"]]);
+        $_SESSION["city"] = [$_POST["city"]];
+        $_SESSION["street"] = [$_POST["street"]];
+        $_SESSION["streetnumber"] = [$_POST["streetnumber"]];
+        $_SESSION["zipcode"] = [$_POST["zipcode"]];
+    }
+
+
+
 }
 
 if (!empty($_POST)) {

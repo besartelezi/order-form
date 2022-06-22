@@ -123,3 +123,7 @@ This does the trick, so I won't complain, but I still think there might be anoth
 And I'd like to find out this other way, but since I'm on a strict schedule here I'll explore that option whenever I have some free time left.
 I still have to figure out a way to show the previous values of the products selected by the user.
 
+## Court is in "Session", Cookies V.S. the Pitiful Henchmen of Philadelphia
+After reading on sessions and cookies, I think I'll have to use a session.
+The requirements were that "We want to prefill the address (you can just use any previous user input, we don't need to get data from anywhere else), as long as the browser isn't closed."
+Sessions are most definitely what we want to use here.
