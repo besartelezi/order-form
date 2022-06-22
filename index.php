@@ -45,41 +45,43 @@ $productsLength = count($products);
     return [];
 }
 
-
-
-
 function handleForm(array $originalProducts)
 {
 
+    $invalidFields = validate();
+    if (!empty($_POST["email"])) {
+        // TODO: handle errors
+        return [];
+    } else {
+        // TODO: handle successful submission
+    }
     // TODO: form related tasks (step 1) --------------------------- DONE
     echo $_POST["email"];
-    echo "<br>";
     echo $_POST["street"];
-    echo "<br>";
     echo $_POST["streetnumber"];
-    echo "<br>";
     echo $_POST["city"];
-    echo "<br>";
     echo $_POST["zipcode"];
-    echo "<br>";
 
-
-    $arrayKeysProducts = array_keys($_POST["products"]);
-    for ($i = 0; $i < count($arrayKeysProducts); $i++) {
-        echo $originalProducts[$arrayKeysProducts[$i]]["name"];
-        echo "<br>";
+    if (isset($_POST["products"])) {
+        $arrayKeysProducts = array_keys($_POST["products"]);
+        for ($i = 0; $i < count($arrayKeysProducts); $i++) {
+            echo $originalProducts[$arrayKeysProducts[$i]]["name"];
+            echo "<br>";
+        }
     }
     // Validation (step 2)
     $invalidFields = validate();
-    if (!empty($invalidFields)) {
+    if (!empty($_POST["email"])) {
         // TODO: handle errors
-        echo "This field be empty yo";
-        $_POST = [];
+
+
         return [];
     } else {
         // TODO: handle successful submission
     }
 }
+
+
 if (!empty($_POST)) {
     handleForm($products);
 }
