@@ -40,6 +40,13 @@ $productsLength = count($products);
 
 
 
+if (isset($_POST["products"])) {
+    $arrayKeysProducts = array_keys($_POST["products"]);
+    for ($i = 0; $i < count($arrayKeysProducts); $i++) {
+        $totalValue += $products[$arrayKeysProducts[$i]]["price"];
+    }
+}
+
 function validate()
 {
     // TODO: This function will send a list of invalid fields back
@@ -66,7 +73,6 @@ function handleForm(array $originalProducts)
     Ye e-mail that ye 'ave given be invalid, please try again.
 </div>";
     }
-
     else {
         // TODO: handle successful submission
         echo $_POST["email"];
@@ -83,12 +89,14 @@ function handleForm(array $originalProducts)
             $arrayKeysProducts = array_keys($_POST["products"]);
             for ($i = 0; $i < count($arrayKeysProducts); $i++) {
                 echo $originalProducts[$arrayKeysProducts[$i]]["name"];
+                echo ": ";
+                echo $originalProducts[$arrayKeysProducts[$i]]["price"];
+                echo "€";
                 echo "<br>";
             }
         }
     }
 }
-
 
 if (!empty($_POST)) {
     handleForm($products);
