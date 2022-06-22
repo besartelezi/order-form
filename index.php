@@ -53,9 +53,15 @@ function handleForm(array $originalProducts)
         || empty($_POST["city"])|| empty($_POST["zipcode"])|| empty($_POST["products"])){
         // TODO: handle errors
         echo '<div class="alert alert-danger" role="alert">
-  You forgot to fill in all your information! Please check again.
+  You forgot to fill in all your information, please try again.
 </div>';
-    } else {
+    } else if (!is_numeric(($_POST["zipcode"]))) {
+        echo '<div class="alert alert-danger" role="alert">
+  The Zipcode should only consist of numbers, please try again.
+</div>';
+    }
+
+    else {
         // TODO: handle successful submission
         echo $_POST["email"];
         echo $_POST["street"];
