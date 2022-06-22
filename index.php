@@ -39,7 +39,8 @@ $totalValue = 0;
 $productsLength = count($products);
 
 
-    function validate()
+
+function validate()
 {
     // TODO: This function will send a list of invalid fields back
     return [];
@@ -57,22 +58,27 @@ function handleForm(array $originalProducts)
 </div>";
     } else if (!is_numeric(($_POST["zipcode"]))) {
         echo "<div class='alert alert-danger' role='alert'>
-    The Zipcode shall only consist o' numbers, please try again.
+    Ye Zipcode shall only consist o' numbers, please try again.
 </div>";
     }
     else if (!strpos($_POST["email"], "@")) {
         echo "<div class='alert alert-danger' role='alert'>
-    The e-mail that ye 'ave given was invalid, please try again.
+    Ye e-mail that ye 'ave given be invalid, please try again.
 </div>";
     }
 
     else {
         // TODO: handle successful submission
         echo $_POST["email"];
+        echo "<br>";
         echo $_POST["street"];
+        echo "<br>";
         echo $_POST["streetnumber"];
+        echo "<br>";
         echo $_POST["city"];
+        echo "<br>";
         echo $_POST["zipcode"];
+        echo "<br>";
         if (isset($_POST["products"])) {
             $arrayKeysProducts = array_keys($_POST["products"]);
             for ($i = 0; $i < count($arrayKeysProducts); $i++) {

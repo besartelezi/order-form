@@ -16,12 +16,13 @@ And the long version shall be written down below!
 - [x] We will learn how to save this information to a database later, so no need to do this now.
 
 ### Step 2: validation
-- [ ] Use PHP to check the following:
+- [x] Use PHP to check the following:
     - [x] Required fields are not empty.
     - [x] Zip code are only numbers.
-    - [ ] Email address is valid.
-- [ ] Show any problems (empty or invalid data) with the fields at the top of the form. Tip: use the [bootstrap alerts](https://getbootstrap.com/docs/4.0/components/alerts/) for inspiration. If they are valid, the confirmation of step 1 is shown.
-- [ ] If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
+    - [x] Email address is valid.
+- [x] Show any problems (empty or invalid data) with the fields at the top of the form. Tip: use the [bootstrap alerts](https://getbootstrap.com/docs/4.0/components/alerts/) for inspiration. If they are valid, the confirmation of step 1 is shown.
+- [x] If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
+  - [ ] Do this for the checkboxes as well.
 
 > Usually, validation is a combination of server side checks (for security, these can't be bypassed) and checks in html / JS (can be bypassed but can give live user feedback).
 
@@ -111,4 +112,14 @@ I did have to move some parts of the code however, just so that everything would
 The e-mail has an automatic validator, since the e-mail fields from bootstrap automatically check if the user has input a valid e-mail.
 But since the challenge mentioned that we need to use PHP to validate it, I'll add an e-mail validator just to be sure.
 
+In order to show the previous values that the user has put in, I added the following code to all the input tags.
+I added the if(isset), so it doesn't exist until the user has put a value in.
+If I do it without the isset(), it will create some unpleasant bugs.
+````
+value ="<?php if(isset($_POST["street"])): ?><?php echo $_POST["street"]?><?php endif; ?>"
+````
+
+This does the trick, so I won't complain, but I still think there might be another way to do this.
+And I'd like to find out this other way, but since I'm on a strict schedule here I'll explore that option whenever I have some free time left.
+I still have to figure out a way to show the previous values of the products selected by the user.
 
