@@ -17,7 +17,7 @@ And the long version shall be written down below!
 
 ### Step 2: validation
 - [ ] Use PHP to check the following:
-    - [ ] Required fields are not empty.
+    - [x] Required fields are not empty.
     - [ ] Zip code are only numbers.
     - [ ] Email address is valid.
 - [ ] Show any problems (empty or invalid data) with the fields at the top of the form. Tip: use the [bootstrap alerts](https://getbootstrap.com/docs/4.0/components/alerts/) for inspiration. If they are valid, the confirmation of step 1 is shown.

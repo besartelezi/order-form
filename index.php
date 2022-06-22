@@ -48,36 +48,27 @@ $productsLength = count($products);
 function handleForm(array $originalProducts)
 {
 
-    $invalidFields = validate();
-    if (!empty($_POST["email"])) {
-        // TODO: handle errors
-        return [];
-    } else {
-        // TODO: handle successful submission
-    }
-    // TODO: form related tasks (step 1) --------------------------- DONE
-    echo $_POST["email"];
-    echo $_POST["street"];
-    echo $_POST["streetnumber"];
-    echo $_POST["city"];
-    echo $_POST["zipcode"];
-
-    if (isset($_POST["products"])) {
-        $arrayKeysProducts = array_keys($_POST["products"]);
-        for ($i = 0; $i < count($arrayKeysProducts); $i++) {
-            echo $originalProducts[$arrayKeysProducts[$i]]["name"];
-            echo "<br>";
-        }
-    }
     // Validation (step 2)
-    $invalidFields = validate();
-    if (!empty($_POST["email"])) {
+    if (empty($_POST["email"]) || empty($_POST["streetnumber"]) || empty($_POST["street"])
+        || empty($_POST["city"])|| empty($_POST["zipcode"])|| empty($_POST["products"])){
         // TODO: handle errors
-
-
-        return [];
+        echo '<div class="alert alert-danger" role="alert">
+  You forgot to fill in all your information! Please check again.
+</div>';
     } else {
         // TODO: handle successful submission
+        echo $_POST["email"];
+        echo $_POST["street"];
+        echo $_POST["streetnumber"];
+        echo $_POST["city"];
+        echo $_POST["zipcode"];
+        if (isset($_POST["products"])) {
+            $arrayKeysProducts = array_keys($_POST["products"]);
+            for ($i = 0; $i < count($arrayKeysProducts); $i++) {
+                echo $originalProducts[$arrayKeysProducts[$i]]["name"];
+                echo "<br>";
+            }
+        }
     }
 }
 
